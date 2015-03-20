@@ -28,9 +28,6 @@ def update_quality_for_expired(item)
   end
 end
 
-def expired(item)
- item.sell_in < 0 
-end
 
 def appreciating_item(item)
   item.appreciating_item
@@ -38,6 +35,10 @@ end
 
 def is_legendary(item)
   item.is_legendary
+end
+
+def expired(item)
+ item.expired
 end
 
 def update_sell_in(item)
@@ -68,16 +69,14 @@ def increase_daily_quality(item)
 end
 
 def increase_quality(item)
-  if item.quality < 50
-    item.quality += 1
-  end
+  item.increase_quality
 end
 
 
 def update_quality(items)
   items.each do |item|
-    item = InventoryItem.new(item)
-    update_item(item)
+    inventory_item = InventoryItem.new(item)
+    update_item(inventory_item)
   end
 end
 

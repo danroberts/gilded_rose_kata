@@ -13,40 +13,9 @@ def update_item(item)
     item.update_quality_for_expired
   end
 end
-
 def update_quality_for_expired(item)
   item.update_quality_for_expired
 end
-
-
-def appreciating_item(item)
-  item.appreciating_item
-end
-
-def is_legendary(item)
-  item.is_legendary
-end
-
-def expired(item)
- item.expired
-end
-
-def update_sell_in(item)
-  item.update_sell_in
-end
-
-def decrease_quality(item)
-  item.decrease_quality
-end
-
-def increase_daily_quality(item)
-  item.increase_daily_quality
-end
-
-def increase_quality(item)
-  item.increase_quality
-end
-
 
 def update_quality(items)
   items.each do |item|

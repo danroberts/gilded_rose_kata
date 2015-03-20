@@ -29,6 +29,11 @@ describe "The gilded rose" do
       update_quality(list)
       expect(vest.quality).to eq 18
     end
+    it 'brie increases in value twice as fast' do
+      brie.sell_in = 0
+      update_quality(list)
+      expect(brie.quality).to eq 2
+    end
   end
 
   describe "The quality of an item" do

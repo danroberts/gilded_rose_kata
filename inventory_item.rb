@@ -9,10 +9,6 @@ class InventoryItem
     else
       increase_daily_quality
     end
-
-    if expired
-      update_quality_for_expired
-    end
   end
 
   def is_legendary
@@ -55,6 +51,8 @@ class InventoryItem
   end
 
   def update_quality_for_expired
+    return if !expired
+
     if !appreciating_item
       decrease_quality
     end

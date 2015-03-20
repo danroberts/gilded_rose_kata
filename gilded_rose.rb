@@ -3,6 +3,7 @@ require 'inventory_item.rb'
 def update_item(item)
   item.update_sell_in
   item.update_quality
+  item.update_quality_for_expired
 end
 
 def update_quality_for_expired(item)

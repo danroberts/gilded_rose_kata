@@ -21,6 +21,47 @@ class InventoryItem
     end
   end
 
+  def decrease_quality
+    if @item.quality > 0
+      if !is_legendary
+        @item.quality -= 1
+      end
+    end
+  end
+  
+  def increase_daily_quality
+    increase_quality
+
+    if @item.name == 'Backstage passes to a TAFKAL80ETC concert'
+      if @item.sell_in < 11
+        increase_quality
+      end
+      if @item.sell_in < 6
+        increase_quality
+      end
+    end
+  end
+
+  def update_quality_for_expired
+    if !appreciating_item
+      decrease_quality
+    end
+
+    if @item.name == "Aged Brie"
+      increase_quality
+    end
+
+    if @item.name == 'Backstage passes to a TAFKAL80ETC concert'
+      @item.quality = 0
+    end
+  end
+
+  def update_sell_in
+    if !is_legendary
+      @item.sell_in -= 1
+    end
+  end
+
   def name
     @item.name
   end

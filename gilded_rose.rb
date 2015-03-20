@@ -1,31 +1,21 @@
 require 'inventory_item.rb'
 
 def update_item(item)
-  if !appreciating_item(item)
-    decrease_quality(item)
+  item.update_sell_in
+
+  if !item.appreciating_item
+    item.decrease_quality
   else
-    increase_daily_quality(item)
+    item.increase_daily_quality
   end
 
-  update_sell_in(item)
-
-  if expired(item)
-    update_quality_for_expired(item)
+  if item.expired
+    item.update_quality_for_expired
   end
 end
 
 def update_quality_for_expired(item)
-  if !appreciating_item(item)
-    decrease_quality(item)
-  end
-
-  if item.name == "Aged Brie"
-    increase_quality(item)
-  end
-
-  if item.name == 'Backstage passes to a TAFKAL80ETC concert'
-    item.quality = item.quality - item.quality
-  end
+  item.update_quality_for_expired
 end
 
 
@@ -42,30 +32,15 @@ def expired(item)
 end
 
 def update_sell_in(item)
-  if !is_legendary(item)
-    item.sell_in -= 1
-  end
+  item.update_sell_in
 end
 
 def decrease_quality(item)
-  if item.quality > 0
-    if !is_legendary(item)
-      item.quality -= 1
-    end
-  end
+  item.decrease_quality
 end
 
 def increase_daily_quality(item)
-  increase_quality(item)
-
-  if item.name == 'Backstage passes to a TAFKAL80ETC concert'
-    if item.sell_in < 11
-      increase_quality(item)
-    end
-    if item.sell_in < 6
-      increase_quality(item)
-    end
-  end
+  item.increase_daily_quality
 end
 
 def increase_quality(item)

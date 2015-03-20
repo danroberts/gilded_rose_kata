@@ -4,7 +4,7 @@ class InventoryItem
   end
 
   def update_quality
-    decrease_quality
+    decrease_quality(1)
   end
 
   def expired
@@ -17,15 +17,15 @@ class InventoryItem
     end
   end
 
-  def decrease_quality
+  def decrease_quality(amount)
     if @item.quality > 0
-      @item.quality -= 1
+      @item.quality -= amount
     end
   end
 
   def update_quality_for_expired
     return if !expired
-    decrease_quality
+    decrease_quality(1)
   end
 
   def update_sell_in
@@ -69,7 +69,7 @@ class LegendaryInventoryItem < InventoryItem
   def update_sell_in
   end
 
-  def decrease_quality
+  def decrease_quality(amount)
   end
 end
 

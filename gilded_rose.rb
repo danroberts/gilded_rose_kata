@@ -1,3 +1,7 @@
+def increases_quality_with_time(item)
+  item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert'
+end
+
 def is_legendary(item)
   item.name == 'Sulfuras, Hand of Ragnaros'
 end
@@ -35,7 +39,7 @@ def increase_quality(item)
 end
 
 def update_item(item)
-  if item.name != 'Aged Brie' && item.name != 'Backstage passes to a TAFKAL80ETC concert'
+  if !increases_quality_with_time(item)
     decrease_quality(item)
   else
     increase_quality(item)

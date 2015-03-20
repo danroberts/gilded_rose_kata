@@ -52,9 +52,12 @@ def update_item(item)
   update_sell_in(item)
 
   if expired(item)
+    if !increases_quality_with_time(item)
+      decrease_quality(item)
+    end
+
     if item.name != "Aged Brie"
       if item.name != 'Backstage passes to a TAFKAL80ETC concert'
-        decrease_quality(item)
       else
         item.quality = item.quality - item.quality
       end

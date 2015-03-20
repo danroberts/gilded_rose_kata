@@ -7,6 +7,12 @@ class InventoryItem
     name == 'Sulfuras, Hand of Ragnaros'
   end
 
+  def update_sell_in
+    if !is_legendary
+      sell_in -= 1
+    end
+  end
+
   def name
     @struct.name
   end

@@ -8,17 +8,21 @@ def update_item(item)
   update_sell_in(item)
 
   if expired(item)
-    if !appreciating_item(item)
-      decrease_quality(item)
-    end
+    update_quality_for_expired(item)
+  end
+end
 
-    if item.name == "Aged Brie"
-      increase_quality(item)
-    end
+def update_quality_for_expired(item)
+  if !appreciating_item(item)
+    decrease_quality(item)
+  end
 
-    if item.name == 'Backstage passes to a TAFKAL80ETC concert'
-      item.quality = item.quality - item.quality
-    end
+  if item.name == "Aged Brie"
+    increase_quality(item)
+  end
+
+  if item.name == 'Backstage passes to a TAFKAL80ETC concert'
+    item.quality = item.quality - item.quality
   end
 end
 

@@ -7,14 +7,14 @@ def is_legendary(item)
 end
 
 def update_sell_in(item)
-  if !is_legendary
+  if !is_legendary(item)
     item.sell_in -= 1
   end
 end
 
 def decrease_quality(item)
   if item.quality > 0
-    if !is_legendary
+    if !is_legendary(item)
       item.quality -= 1
     end
   end

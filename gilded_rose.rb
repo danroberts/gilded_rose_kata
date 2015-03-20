@@ -34,11 +34,15 @@ def increase_daily_quality(item)
         end
       end
       if item.sell_in < 6
-        if item.quality < 50
-          item.quality += 1
-        end
+        increase_quality(item)
       end
     end
+  end
+end
+
+def increase_quality(item)
+  if item.quality < 50
+    item.quality += 1
   end
 end
 

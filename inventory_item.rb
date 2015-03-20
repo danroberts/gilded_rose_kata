@@ -3,6 +3,10 @@ class InventoryItem
     @struct = struct
   end
 
+  def is_legendary
+    name == 'Sulfuras, Hand of Ragnaros'
+  end
+
   def name
     @struct.name
   end

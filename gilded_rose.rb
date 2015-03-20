@@ -37,7 +37,7 @@ def appreciating_item(item)
 end
 
 def is_legendary(item)
-  item.name == 'Sulfuras, Hand of Ragnaros'
+  item.is_legendary
 end
 
 def update_sell_in(item)

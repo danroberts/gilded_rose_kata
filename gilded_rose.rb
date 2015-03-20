@@ -15,7 +15,7 @@ def update_quality(items)
     if item.name == "Aged Brie" 
       inventory_item = AppreciatingInventoryItem.new(item)
     elsif item.name == "Backstage passes to a TAFKAL80ETC concert"
-      inventory_item = ExpiringInventoryItem.new(item)
+      inventory_item = ConcertTicketInventoryItem.new(item)
     elsif item.name == "Sulfuras, Hand of Ragnaros"
       inventory_item = LegendaryInventoryItem.new(item)
     else

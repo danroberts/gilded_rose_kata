@@ -7,10 +7,8 @@ class InventoryItem
     name == 'Sulfuras, Hand of Ragnaros'
   end
 
-  def update_sell_in
-    if !is_legendary
-      sell_in -= 1
-    end
+  def appreciating_item
+    name == 'Aged Brie' || name == 'Backstage passes to a TAFKAL80ETC concert'
   end
 
   def name

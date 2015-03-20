@@ -33,7 +33,7 @@ def expired(item)
 end
 
 def appreciating_item(item)
-  item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert'
+  item.appreciating_item
 end
 
 def is_legendary(item)

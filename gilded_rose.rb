@@ -24,7 +24,7 @@ def decrease_quality(item)
   end
 end
 
-def increase_quality(item)
+def increase_daily_quality(item)
   if item.quality < 50
     item.quality += 1
     if item.name == 'Backstage passes to a TAFKAL80ETC concert'
@@ -46,7 +46,7 @@ def update_item(item)
   if !increases_quality_with_time(item)
     decrease_quality(item)
   else
-    increase_quality(item)
+    increase_daily_quality(item)
   end
 
   update_sell_in(item)

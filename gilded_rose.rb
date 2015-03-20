@@ -16,6 +16,8 @@ def update_quality(items)
       inventory_item = AppreciatingInventoryItem.new(item)
     elsif item.name == "Backstage passes to a TAFKAL80ETC concert"
       inventory_item = ExpiringInventoryItem.new(item)
+    elsif item.name == "Sulfuras, Hand of Ragnaros"
+      inventory_item = LegendaryInventoryItem.new(item)
     else
       inventory_item = InventoryItem.new(item)
     end

@@ -7,10 +7,6 @@ class InventoryItem
     decrease_quality
   end
 
-  def is_legendary
-    @item.name == 'Sulfuras, Hand of Ragnaros'
-  end
-
   def expired
     @item.sell_in < 0 
   end
@@ -23,9 +19,7 @@ class InventoryItem
 
   def decrease_quality
     if @item.quality > 0
-      if !is_legendary
-        @item.quality -= 1
-      end
+      @item.quality -= 1
     end
   end
   
@@ -48,9 +42,7 @@ class InventoryItem
   end
 
   def update_sell_in
-    if !is_legendary
-      @item.sell_in -= 1
-    end
+    @item.sell_in -= 1
   end
 
   def name
@@ -93,5 +85,13 @@ class ExpiringInventoryItem < AppreciatingInventoryItem
   def update_quality_for_expired
     return if !expired
     @item.quality = 0
+  end
+end
+
+class LegendaryInventoryItem < InventoryItem
+  def update_sell_in
+  end
+
+  def decrease_quality
   end
 end

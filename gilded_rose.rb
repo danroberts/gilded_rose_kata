@@ -1,5 +1,5 @@
 def update_item(item)
-  if !increases_quality_with_time(item)
+  if !appreciating_item(item)
     decrease_quality(item)
   else
     increase_daily_quality(item)
@@ -8,7 +8,7 @@ def update_item(item)
   update_sell_in(item)
 
   if expired(item)
-    if !increases_quality_with_time(item)
+    if !appreciating_item(item)
       decrease_quality(item)
     end
 
@@ -26,7 +26,7 @@ def expired(item)
  item.sell_in < 0 
 end
 
-def increases_quality_with_time(item)
+def appreciating_item(item)
   item.name == 'Aged Brie' || item.name == 'Backstage passes to a TAFKAL80ETC concert'
 end
 

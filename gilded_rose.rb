@@ -1,3 +1,5 @@
+require 'inventory_item.rb'
+
 def update_item(item)
   if !appreciating_item(item)
     decrease_quality(item)
@@ -74,6 +76,7 @@ end
 
 def update_quality(items)
   items.each do |item|
+    item = InventoryItem.new(item)
     update_item(item)
   end
 end

@@ -11,10 +11,6 @@ class InventoryItem
     @item.name == 'Sulfuras, Hand of Ragnaros'
   end
 
-  def appreciating_item
-    @item.name == 'Aged Brie' || @item.name == 'Backstage passes to a TAFKAL80ETC concert'
-  end
-
   def expired
     @item.sell_in < 0 
   end
@@ -48,18 +44,7 @@ class InventoryItem
 
   def update_quality_for_expired
     return if !expired
-
-    if !appreciating_item
-      decrease_quality
-    end
-
-    if @item.name == "Aged Brie"
-      increase_quality
-    end
-
-    if @item.name == 'Backstage passes to a TAFKAL80ETC concert'
-      @item.quality = 0
-    end
+    decrease_quality
   end
 
   def update_sell_in
@@ -96,5 +81,17 @@ end
 class AppreciatingInventoryItem < InventoryItem
   def update_quality
     increase_daily_quality
+  end
+
+  def update_quality_for_expired
+    return if !expired
+    increase_quality
+  end
+end
+
+class ExpiringInventoryItem < AppreciatingInventoryItem
+  def update_quality_for_expired
+    return if !expired
+    @item.quality = 0
   end
 end

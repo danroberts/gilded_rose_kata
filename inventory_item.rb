@@ -4,11 +4,7 @@ class InventoryItem
   end
 
   def update_quality
-    if !appreciating_item
-      decrease_quality
-    else
-      increase_daily_quality
-    end
+    decrease_quality
   end
 
   def is_legendary
@@ -97,3 +93,8 @@ class InventoryItem
   end
 end
 
+class AppreciatingInventoryItem < InventoryItem
+  def update_quality
+    increase_daily_quality
+  end
+end

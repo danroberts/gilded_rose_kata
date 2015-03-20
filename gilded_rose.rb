@@ -12,7 +12,11 @@ end
 
 def update_quality(items)
   items.each do |item|
-    inventory_item = InventoryItem.new(item)
+    if item.name == "Aged Brie" || item.name == "Backstage passes to a TAFKAL80ETC concert"
+      inventory_item = AppreciatingInventoryItem.new(item)
+    else
+      inventory_item = InventoryItem.new(item)
+    end
     update_item(inventory_item)
   end
 end

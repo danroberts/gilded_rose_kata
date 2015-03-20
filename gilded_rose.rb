@@ -1,3 +1,27 @@
+def update_item(item)
+  if !increases_quality_with_time(item)
+    decrease_quality(item)
+  else
+    increase_daily_quality(item)
+  end
+
+  update_sell_in(item)
+
+  if expired(item)
+    if !increases_quality_with_time(item)
+      decrease_quality(item)
+    end
+
+    if item.name != "Aged Brie"
+      if item.name == 'Backstage passes to a TAFKAL80ETC concert'
+        item.quality = item.quality - item.quality
+      end
+    else
+      increase_quality(item)
+    end
+  end
+end
+
 def expired(item)
  item.sell_in < 0 
 end
@@ -43,32 +67,6 @@ def increase_quality(item)
   end
 end
 
-def update_item(item)
-  if !increases_quality_with_time(item)
-    decrease_quality(item)
-  else
-    increase_daily_quality(item)
-  end
-
-  update_sell_in(item)
-
-  if expired(item)
-    if !increases_quality_with_time(item)
-      decrease_quality(item)
-    end
-
-    if item.name != "Aged Brie"
-      if item.name != 'Backstage passes to a TAFKAL80ETC concert'
-      else
-        item.quality = item.quality - item.quality
-      end
-    else
-      if item.quality < 50
-        item.quality += 1
-      end
-    end
-  end
-end
 
 def update_quality(items)
   items.each do |item|

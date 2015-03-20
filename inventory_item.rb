@@ -31,30 +31,6 @@ class InventoryItem
   def update_sell_in
     @item.sell_in -= 1
   end
-
-  def name
-    @item.name
-  end
-
-  def sell_in
-    @item.sell_in
-  end
-
-  def quality 
-    @item.quality
-  end
-
-  def name=(name)
-    @item.name = name
-  end
-
-  def sell_in=(sell_in)
-    @item.sell_in = sell_in
-  end
-
-  def quality=(q)
-    @item.quality = q
-  end
 end
 
 class AppreciatingInventoryItem < InventoryItem

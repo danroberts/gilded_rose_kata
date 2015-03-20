@@ -12,12 +12,12 @@ def update_item(item)
       decrease_quality(item)
     end
 
-    if item.name != "Aged Brie"
-      if item.name == 'Backstage passes to a TAFKAL80ETC concert'
-        item.quality = item.quality - item.quality
-      end
-    else
+    if item.name == "Aged Brie"
       increase_quality(item)
+    end
+
+    if item.name == 'Backstage passes to a TAFKAL80ETC concert'
+      item.quality = item.quality - item.quality
     end
   end
 end

@@ -2,17 +2,9 @@ require 'inventory_item.rb'
 
 def update_item(item)
   item.update_sell_in
-
-  if !item.appreciating_item
-    item.decrease_quality
-  else
-    item.increase_daily_quality
-  end
-
-  if item.expired
-    item.update_quality_for_expired
-  end
+  item.update_quality
 end
+
 def update_quality_for_expired(item)
   item.update_quality_for_expired
 end

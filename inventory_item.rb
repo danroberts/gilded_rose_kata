@@ -3,6 +3,18 @@ class InventoryItem
     @item = item
   end
 
+  def update_quality
+    if !appreciating_item
+      decrease_quality
+    else
+      increase_daily_quality
+    end
+
+    if expired
+      update_quality_for_expired
+    end
+  end
+
   def is_legendary
     @item.name == 'Sulfuras, Hand of Ragnaros'
   end
